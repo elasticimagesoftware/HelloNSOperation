@@ -17,6 +17,8 @@
 	
 }
 
-- (id)initWithSequenceDataRequestPackage:(NSDictionary *)requestPackage target:(id)target action:(SEL)action;
+- (id)initWithSequenceDataRequestPackage:(NSDictionary *)requestPackage 
+								  target:(id)target 
+								  action:(SEL)action;
 
 @end
