@@ -17,10 +17,7 @@
 	UILabel						*m_label;
 	UIActivityIndicatorView		*m_spinner;
 	
-	NSRange					m_basepairRange;
-	
-    NSMutableData			*m_sequenceData;
-    NSString				*m_sequenceString;	
+    NSMutableData			*m_data;
 	NSOperationQueue		*m_operationQueue;
 
 	Counter					*m_counter;
@@ -30,16 +27,13 @@
 	UISlider				*m_slider;
 	UILabel					*m_sliderLabel;
 	
-	
 }
 
 @property(nonatomic,retain)IBOutlet UILabel *label;
 @property(nonatomic,retain)IBOutlet UIActivityIndicatorView *spinner;
 
-@property(nonatomic,assign)NSRange basepairRange;
-@property(nonatomic,retain)NSMutableData *sequenceData;
-@property(nonatomic,retain)NSString *sequenceString;
-@property(nonatomic,retain)NSOperationQueue *operationQueue;
+@property (nonatomic, retain) NSMutableData		*data;
+@property (nonatomic, retain) NSOperationQueue	*operationQueue;
 
 @property(nonatomic,retain)IBOutlet UISlider *slider;
 @property(nonatomic,retain)IBOutlet UILabel *sliderLabel;
@@ -47,7 +41,7 @@
 
 @property(nonatomic,retain)Observer *observer;
 
--(IBAction) triggerSequenceDataLoadingOperation:(id)sender;
+-(IBAction) triggerDataLoadingOperation:(id)sender;
 
 -(void) updateSliderLabel:(NSNumber *)newValue;
 

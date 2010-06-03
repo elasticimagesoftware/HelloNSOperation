@@ -7,7 +7,7 @@
 //
 
 #import "HelloNSOperationViewController.h"
-#import "SequenceDataLoadingOperation.h"
+#import "DataLoadingOperation.h"
 #import "Counter.h"
 #import "Observer.h"
 
@@ -16,9 +16,7 @@
 @synthesize label = m_label;
 @synthesize spinner = m_spinner;
 
-@synthesize basepairRange = m_basepairRange;
-@synthesize sequenceData = m_sequenceData;
-@synthesize sequenceString = m_sequenceString;
+@synthesize data = m_data;
 @synthesize operationQueue = m_operationQueue;
 
 @synthesize slider = m_slider;
@@ -43,9 +41,11 @@
     [m_counter release], m_counter = nil;
     [m_observer release], m_observer = nil;
 	
-	[m_sequenceData release], m_sequenceData = nil;
-    [m_sequenceString release], m_sequenceString = nil;
-    [m_operationQueue release], m_operationQueue = nil;
+    [m_data				release];
+    m_data				= nil;
+	
+    [m_operationQueue	release];
+	m_operationQueue	= nil;
 	
     [super dealloc];
 }
@@ -70,20 +70,10 @@
 #pragma mark -
 #pragma mark HelloNSOperationViewController Private Methods
 
-- (void)didFinishRetrievingSequenceData:(NSDictionary *)results {
+- (void)didFinishRetrievingData:(NSDictionary *)results {
 	
-	self.sequenceData		= [results objectForKey:@"sequenceData"];
-	self.sequenceString		= [
-							   [[NSString alloc] initWithBytes:[self.sequenceData bytes] 
-													 length:[self.sequenceData length] 
-												   encoding:NSUTF8StringEncoding] 
-							   autorelease];
-	
-	NSUInteger location	= [[results objectForKey:@"basepairStart"] intValue];
-	NSUInteger length	= [[results objectForKey:@"basepairEnd"  ] intValue] - location;
-	self.basepairRange	= NSMakeRange(location, length);
-	
-	self.label.text = [NSString stringWithFormat:@"%d MB", [self.sequenceData length]/1000000];
+	self.data			= [results objectForKey:@"data"];
+	self.label.text		= [NSString stringWithFormat:@"%d MB", [self.data length]/1000000];
 	
 	[self.spinner stopAnimating];
 	
@@ -92,32 +82,24 @@
 #pragma mark -
 #pragma mark HelloNSOperationViewController Public Methods
 
--(IBAction) triggerSequenceDataLoadingOperation:(id)sender {
+-(IBAction) triggerDataLoadingOperation:(id)sender {
 
-	NSLog(@"Hello NSOperation ViewController - trigger SequenceData LoadingOperation");
+	NSLog(@"Hello NSOperation ViewController - trigger Data LoadingOperation");
 
 	self.label.text = @"";
 
 	self.operationQueue = [[[NSOperationQueue alloc] init] autorelease];
 	[self.operationQueue setMaxConcurrentOperationCount:1];
 	
-	self.basepairRange = NSMakeRange((NSUInteger)1e6, (NSUInteger)(8e6 - 1));
-	
-	NSInteger theStart = self.basepairRange.location;
-	NSInteger theEnd = (self.basepairRange.length + self.basepairRange.location);
+	SEL theAction = @selector(didFinishRetrievingData:);
 
-	SEL theAction = @selector(didFinishRetrievingSequenceData:);
-
-	NSDictionary *requestPackage = [NSDictionary dictionaryWithObjectsAndKeys:
-									[NSString stringWithString:@"1" ],	@"chromosome",
-									[NSNumber numberWithInt:theStart],	@"basepairStart",
-									[NSNumber numberWithInt:theEnd  ],	@"basepairEnd",
-									nil];
+	NSDictionary *requestPackage = 
+	[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithString:@"nuthin" ], @"nothing_to_see_move_along", nil];
 	
-	SequenceDataLoadingOperation *operation = 
-	[[[SequenceDataLoadingOperation alloc]initWithSequenceDataRequestPackage:requestPackage 
-																	  target:self 
-																	  action:theAction] autorelease];
+	DataLoadingOperation *operation = 
+	[[[DataLoadingOperation alloc] initWithDataRequestPackage:requestPackage 
+													   target:self 
+													   action:theAction] autorelease];
 	
 	[self.spinner startAnimating];
 	

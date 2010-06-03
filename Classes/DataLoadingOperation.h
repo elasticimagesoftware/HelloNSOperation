@@ -1,5 +1,5 @@
 //
-//  SequenceDataLoadingOperation.h
+//  DataLoadingOperation.h
 //  LazyLoadingScrollView
 //
 //  Created by turner on 10/2/09.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SequenceDataLoadingOperation : NSOperation {
+@interface DataLoadingOperation : NSOperation {
 	
 	NSDictionary *_requestPackage;
 	
@@ -17,7 +17,7 @@
 	
 }
 
-- (id)initWithSequenceDataRequestPackage:(NSDictionary *)requestPackage 
+- (id)initWithDataRequestPackage:(NSDictionary *)requestPackage 
 								  target:(id)target 
 								  action:(SEL)action;
 

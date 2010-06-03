@@ -15,7 +15,7 @@
 		2899E5220DE3E06400AC0155 /* HelloNSOperationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HelloNSOperationViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* HelloNSOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* HelloNSOperationViewController.m */; };
-		2FD15960119B837A0023C98A /* SequenceDataLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1595F119B837A0023C98A /* SequenceDataLoadingOperation.m */; };
+		2FD15960119B837A0023C98A /* DataLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1595F119B837A0023C98A /* DataLoadingOperation.m */; };
 		2FFF50AF11A6EC10008E705C /* Counter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF50AC11A6EC10008E705C /* Counter.m */; };
 		2FFF50B011A6EC10008E705C /* Observer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF50AE11A6EC10008E705C /* Observer.m */; };
 /* End PBXBuildFile section */
@@ -32,8 +32,8 @@
 		28D7ACF60DDB3853001CB0EB /* HelloNSOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloNSOperationViewController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* HelloNSOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloNSOperationViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2FD1595E119B837A0023C98A /* SequenceDataLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceDataLoadingOperation.h; sourceTree = "<group>"; };
-		2FD1595F119B837A0023C98A /* SequenceDataLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequenceDataLoadingOperation.m; sourceTree = "<group>"; };
+		2FD1595E119B837A0023C98A /* DataLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLoadingOperation.h; sourceTree = "<group>"; };
+		2FD1595F119B837A0023C98A /* DataLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataLoadingOperation.m; sourceTree = "<group>"; };
 		2FFF50AB11A6EC10008E705C /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Counter.h; sourceTree = "<group>"; };
 		2FFF50AC11A6EC10008E705C /* Counter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Counter.m; sourceTree = "<group>"; };
 		2FFF50AD11A6EC10008E705C /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
@@ -67,8 +67,8 @@
 				28D7ACF70DDB3853001CB0EB /* HelloNSOperationViewController.m */,
 				1D3623240D0F684500981E51 /* HelloNSOperationAppDelegate.h */,
 				1D3623250D0F684500981E51 /* HelloNSOperationAppDelegate.m */,
-				2FD1595E119B837A0023C98A /* SequenceDataLoadingOperation.h */,
-				2FD1595F119B837A0023C98A /* SequenceDataLoadingOperation.m */,
+				2FD1595E119B837A0023C98A /* DataLoadingOperation.h */,
+				2FD1595F119B837A0023C98A /* DataLoadingOperation.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* HelloNSOperationAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* HelloNSOperationViewController.m in Sources */,
-				2FD15960119B837A0023C98A /* SequenceDataLoadingOperation.m in Sources */,
+				2FD15960119B837A0023C98A /* DataLoadingOperation.m in Sources */,
 				2FFF50AF11A6EC10008E705C /* Counter.m in Sources */,
 				2FFF50B011A6EC10008E705C /* Observer.m in Sources */,
 			);
